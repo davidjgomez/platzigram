@@ -69,6 +69,19 @@ body {
 	padding: 30px 0;
 }
 
+.usertimeline {
+	padding: 30px;
+
+	.row {
+		padding: 10px 0;
+	}
+}
+
+.username {
+	color: $secondary-color;
+	font-size: 2rem;
+}
+
 $avatar-size: 48px;
 
 .avatar {
@@ -79,8 +92,14 @@ $avatar-size: 48px;
 	margin-right: 12px;
 }
 
+.usertimeline .avatar {
+	width: $avatar-size * 3;
+	height: $avatar-size * 3;
+	margin-left: 25%;
+}
+
 .card .username {
-	color: $secondary-color;
+	font-size: 1.2rem;
 }
 
 .card small.time {
@@ -96,15 +115,15 @@ $avatar-size: 48px;
 	margin-left: 12px;
 }
 
-.card i {
+.card .card-content i {
 	font-size: 30px;
 }
 
-.card .fa-heart-o {
+.card .card-content .fa-heart-o {
 	color: $secondary-color;
 }
 
-.card .fa-heart {
+.card .card-content .fa-heart {
 	color: #f44336;
 	display: none;
 }
@@ -116,6 +135,27 @@ $avatar-size: 48px;
 
 	.fa-heart-o {
 		display: none;
+	}
+}
+
+.user-card {
+	padding-bottom: 50%;
+
+	div {
+		display: none;
+		position: absolute;
+	    top: 0;
+	    text-align: center;
+	    padding-top: 50%;
+	    height: 100%;
+	    width: 100%;
+	}
+
+	&:hover div {
+		background-color: rgb(0,0,0);
+		background-color: rgba(0,0,0,0.5);
+		color: white;
+		display: block;
 	}
 }
 

@@ -36,9 +36,9 @@ app.get('/api/pictures', function(req, res) {
 		{
 			user: {
 				username:'dgomez',
-				avatar: ''
+				avatar: 'https://s.gravatar.com/avatar/71ad2f8ab9a58b0357e9db5a0390d8b4?s=80'
 			},
-			url: '',
+			url: 'https://static.pexels.com/photos/6972/summer-office-student-work.jpg',
 			likes: 0,
 			liked: false,
 			createdAt: new Date().getTime()
@@ -46,9 +46,9 @@ app.get('/api/pictures', function(req, res) {
 		{
 			user: {
 				username: 'dgomez',
-				avatar: ''
+				avatar: 'https://s.gravatar.com/avatar/71ad2f8ab9a58b0357e9db5a0390d8b4?s=80'
 			},
-			url: '',
+			url: 'https://static.pexels.com/photos/7079/people-woman-girl-writing.jpg',
 			likes: 1,
 			liked: true,
 			createdAt: new Date().setDate(new Date().getDate() - 10)
@@ -67,6 +67,45 @@ app.post('/api/pictures', function(req, res) {
 		}
 		res.send("File uploaded");
 	})
+})
+
+app.get('/:username', function(req, res) {
+	res.render('index', { title: `Platzigram - ${req.params.username}` });
+})
+
+app.get('/api/user/:user', function(req, res) {
+	var user = {
+			username: `${req.params.user}`,
+			avatar: 'https://s.gravatar.com/avatar/71ad2f8ab9a58b0357e9db5a0390d8b4?s=80',
+			pictures: [
+				{
+					url: 'https://static.pexels.com/photos/6972/summer-office-student-work.jpg',
+					likes: 0
+				},
+				{
+					url: 'https://static.pexels.com/photos/7079/people-woman-girl-writing.jpg',
+					likes: 1
+				},
+				{
+					url: 'https://static.pexels.com/photos/6972/summer-office-student-work.jpg',
+					likes: 20
+				},
+				{
+					url: 'https://static.pexels.com/photos/7079/people-woman-girl-writing.jpg',
+					likes: 5
+				},
+				{
+					url: 'https://static.pexels.com/photos/6972/summer-office-student-work.jpg',
+					likes: 8
+				},
+				{
+					url: 'https://static.pexels.com/photos/7079/people-woman-girl-writing.jpg',
+					likes: 321
+				}
+			]
+		};
+
+	res.send(user);
 })
 
 app.listen(3000, function(err) {
