@@ -54,5 +54,9 @@ module.exports = function(pictures) {
 			})
 	}
 
+	function hideLoader() {
+		//document.getElementById
+	}
+
 	return layout(el);
 }

@@ -1,3 +1,4 @@
+var yo = require('yo-yo');
 var page = require('page');
 var empty = require('empty-element');
 var title = require('title');
@@ -6,11 +7,17 @@ var title = require('title');
 var header = require('../header');
 var template = require('./template');
 
-page('/', header, loadPictures, function(ctx, next){
-	title('Platzigram');
+page('/', header, load, loadPictures, function(ctx, next){
 	var main = document.getElementById('main-container');
 	empty(main).appendChild(template(ctx.pictures));
 })
+
+function load(ctx, next){
+	title('Platzigram');
+	var main = document.getElementById('main-container');
+	empty(main).appendChild(yo`<div class="loader"/>`);
+	next();
+}
 
 //Con Superagent
 /*function loadPictures(ctx, next){
