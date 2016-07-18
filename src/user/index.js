@@ -10,6 +10,17 @@ page('/:username', header, loadUser, function(ctx, next){
 	empty(main).appendChild(template(ctx.user));
 })
 
+page('/:username/:id', header, loadUser, function(ctx, next){
+	title(`Platzigram - ${ctx.params.username}`);
+	var main = document.getElementById('main-container');
+	empty(main).appendChild(template(ctx.user));
+	$(`#modal${ctx.params.id}`).openModal({
+		complete: function() {
+			page(`/${ctx.params.username}`)
+		}
+	});
+})
+
 //Con Async/Await
 async function loadUser(ctx, next){
 	try {

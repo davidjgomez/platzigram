@@ -73,32 +73,42 @@ app.get('/:username', function(req, res) {
 	res.render('index', { title: `Platzigram - ${req.params.username}` });
 })
 
+app.get('/:username/:id', function(req, res) {
+	res.render('index', { title: `Platzigram - ${req.params.username}` });
+})
+
 app.get('/api/user/:user', function(req, res) {
 	var user = {
 			username: `${req.params.user}`,
 			avatar: 'https://s.gravatar.com/avatar/71ad2f8ab9a58b0357e9db5a0390d8b4?s=80',
 			pictures: [
-				{
+				{	
+					id: 0,
 					url: 'https://static.pexels.com/photos/6972/summer-office-student-work.jpg',
 					likes: 0
 				},
 				{
+					id: 1,
 					url: 'https://static.pexels.com/photos/7079/people-woman-girl-writing.jpg',
 					likes: 1
 				},
 				{
+					id: 2,
 					url: 'https://static.pexels.com/photos/6972/summer-office-student-work.jpg',
 					likes: 20
 				},
 				{
+					id: 3,
 					url: 'https://static.pexels.com/photos/7079/people-woman-girl-writing.jpg',
 					likes: 5
 				},
 				{
+					id: 4,
 					url: 'https://static.pexels.com/photos/6972/summer-office-student-work.jpg',
 					likes: 8
 				},
 				{
+					id: 5,
 					url: 'https://static.pexels.com/photos/7079/people-woman-girl-writing.jpg',
 					likes: 321
 				}
