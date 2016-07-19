@@ -1,5 +1,6 @@
 $secondary-color: #125688;
 $background-color: #fafafa;
+$red-color: #f44336;
 
 @import "node_modules/materialize-css/sass/materialize.scss";
 
@@ -125,7 +126,7 @@ $avatar-size: 48px;
 }
 
 .card .card-content .fa-heart {
-	color: #f44336;
+	color: $red-color;
 	display: none;
 }
 
@@ -182,6 +183,25 @@ $avatar-size: 48px;
 			opacity: 0;
 			filter: alpha(opacity=0);
 		}
+	}
+}
+
+.like-heart {
+	font-size: 10em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	transition: all .1s ease;
+	opacity: 0;
+
+	&.liked {
+		color: $red-color;
+		font-size: 12em;
+		display: block;
+		transition: all .5s ease;
+		opacity: 1;
 	}
 }
 
