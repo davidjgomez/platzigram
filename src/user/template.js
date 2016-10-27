@@ -9,7 +9,7 @@ module.exports = function(user) {
 				<img src="${user.avatar}" class="avatar" />
 			</div>
 			<div class="col s12 m6 l8">
-				<span class="username">${user.username}</span>
+				<span class="username">${user.name}</span>
 			</div>
 		</div>
 		<div class="row">
@@ -18,20 +18,20 @@ module.exports = function(user) {
 			      <a href="/${user.username}/${pic.id}" class="modal-trigger">
 			        <div class="card">
 				        <div class="card-image user-card">
-				          <img src="${pic.url}">
+				          <img src="${pic.src}">
 				          <div>
-				            <i class="fa fa-heart" aria-hidden="true"></i> ${pic.likes} 
+				            <i class="fa fa-heart" aria-hidden="true"></i> ${pic.likes || 0} 
 				          </div>
 				        </div>
 				    </div>
 			      </a>
 			      <div id="modal${pic.id}" class="modal modal-fixed-footer">
 			        <div class="modal-content">
-			          <img src="${pic.url}">
+			          <img src="${pic.src}">
 			        </div>
 			        <div class="modal-footer">
 			          <div class="btn btn-flat likes">
-			            <i class="fa fa-heart" aria-hidden="true"></i> ${translate.message('likes', {likes: pic.likes})}
+			            <i class="fa fa-heart" aria-hidden="true"></i> ${translate.message('likes', {likes: pic.likes || 0})}
 			          </div>  
 			        </div>
 			      </div>

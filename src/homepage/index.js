@@ -2,15 +2,27 @@ var yo = require('yo-yo');
 var page = require('page');
 var empty = require('empty-element');
 var title = require('title');
+var io = require('socket.io-client');
 //var request = require('superagent');
 //var request = require('axios');
+var utils = require('../utils');
 var header = require('../header');
+var picture = require('../picture-card');
 var template = require('./template');
 
-page('/', header, load, loadPictures, function(ctx, next){
+var socket = io.connect('http://localhost:5151')
+
+page('/', utils.loadAuth, header, load, loadPictures, function(ctx, next){
 	var main = document.getElementById('main-container');
 	empty(main).appendChild(template(ctx.pictures));
 })
+
+socket.on('image', function (image) {
+	var picturesEl = document.getElementById('pictures-container');
+	var first = picturesEl.firstChild;
+	var img = picture(image);
+	picturesEl.insertBefore(img, first);
+});
 
 function load(ctx, next){
 	title('Platzigram');
