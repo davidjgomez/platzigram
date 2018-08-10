@@ -34,7 +34,7 @@
     "platzigram-client": "davidjgomez/platzigram-client",
     "pug": "^2.0.0-alpha8",
     "socket.io-client": "^1.5.1",
-    "superagent": "^2.0.0",
+    "superagent": "^3.7.0",
     "title": "^1.0.0",
     "yo-yo": "^1.2.0"
   },
